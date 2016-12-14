@@ -13,7 +13,7 @@ var countdown = document.getElementById("countdown");
 // update the tag with id "countdown" every 1 second
 setInterval(function () {
  
-    //seconds between now and target date
+    // find the amount of "seconds" between now and target
     var current_date = new Date().getTime();
     var seconds_left = (target_date - current_date) / 1000;
  
@@ -27,21 +27,19 @@ setInterval(function () {
     minutes = parseInt(seconds_left / 60);
     seconds = parseInt(seconds_left % 60);
      
-    /
-    // If days hours minutes = 0, they will be removed from the timer
-    
-     if(days === 0 && hours === 0 && minutes === 0 && seconds === 0){
-        intro.innerHTML = "Happy New Years 2017!";
-	} else if(days === 0 && hours === 0 && minutes === 0 ){
-        intro.innerHTML = "Countdown to " + year;
-        countdown.innerHTML = seconds + "s ";
-    } else if(days === 0 && hours === 0){
-        intro.innerHTML = "Countdown to " + year;
-        countdown.innerHTML = minutes + "m " + seconds + "s ";
-    } else if(days == 0){
+    // format countdown string + set tag value
+    if(days == 0){
         intro.innerHTML = "Countdown to " + year;
         countdown.innerHTML = hours + "h "
     + minutes + "m " + seconds + "s ";  
+    } else if(days === 0 && hours === 0){
+        intro.innerHTML = "Countdown to " + year;
+        countdown.innerHTML = minutes + "m " + seconds + "s "; 
+    } else if(days === 0 && hours === 0 && minutes === 0){
+        intro.innerHTML = "Countdown to " + year;
+        countdown.innerHTML = seconds + "s ";
+    } else if(days === 0 && hours === 0 && minutes === 0 && seconds === 0){
+        countdown.innerHTML = "Happy New Years 2017!"
     }else {
         intro.innerHTML = "Countdown to " + year;
     countdown.innerHTML = days + "d " + hours + "h "
