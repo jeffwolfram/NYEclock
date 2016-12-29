@@ -1,7 +1,7 @@
 //var clubName = prompt("Please enter club name");
-
+var message = prompt("What would you like the message to be when timer ends?");
 // set the date we're counting down to
-var target_date = new Date("Jan 1, 2017").getTime();
+var target_date = new Date("Jan 1, 2017" ).getTime();
  var year = new Date().getFullYear() + 1;
 // variables for time units
 var days, hours, minutes, seconds;
@@ -28,21 +28,20 @@ setInterval(function () {
     seconds = parseInt(seconds_left % 60);
      
     // format countdown string + set tag value
-    if(days == 0){
-        intro.innerHTML = "Countdown to " + year;
-        countdown.innerHTML = hours + "h "
-    + minutes + "m " + seconds + "s ";  
-    } else if(days === 0 && hours === 0){
-        intro.innerHTML = "Countdown to " + year;
-        countdown.innerHTML = minutes + "m " + seconds + "s "; 
+    if(days === 0 && hours === 0 && minutes === 0 && seconds === 0){
+        intro.innerHTML = message; 
     } else if(days === 0 && hours === 0 && minutes === 0){
         intro.innerHTML = "Countdown to " + year;
-        countdown.innerHTML = seconds + "s ";
-    } else if(days === 0 && hours === 0 && minutes === 0 && seconds === 0){
-        countdown.innerHTML = "Happy New Years 2017!"
-    }else {
+        countdown.innerHTML =   seconds + "s "; 
+    } else if(days === 0 && hours === 0){
         intro.innerHTML = "Countdown to " + year;
-    countdown.innerHTML = days + "d " + hours + "h "
-    + minutes + "m " + seconds + "s ";  }
+        countdown.innerHTML = minutes + "m " + seconds + "s ";
+    } else if( days === 0){
+        intro.innerHTML = "Countdown to " + year;
+        countdown.innerHTML = hours + "h " + minutes + "m " + seconds + "s ";
+    }else {
+    intro.innerHTML = "Countdown to " + year;
+        countdown.innerHTML = days + "d " + hours + "h "
+    + minutes + "m " + seconds + "s ";   }
  
 }, 1000);
