@@ -1,4 +1,4 @@
-//var clubName = prompt("Please enter club name");
+var introMessage = prompt("What would you like it to say above the timer?");
 var message = prompt("What would you like the message to be when timer ends?");
 // set the date we're counting down to
 var target_date = new Date("Jan 1, 2017" ).getTime();
@@ -29,18 +29,19 @@ setInterval(function () {
      
     // format countdown string + set tag value
     if(days === 0 && hours === 0 && minutes === 0 && seconds === 0){
-        intro.innerHTML = message; 
+        intro.innerHTML = message;
+        return;
     } else if(days === 0 && hours === 0 && minutes === 0){
-        intro.innerHTML = "Countdown to " + year;
+        intro.innerHTML = introMessage;
         countdown.innerHTML =   seconds + "s "; 
     } else if(days === 0 && hours === 0){
-        intro.innerHTML = "Countdown to " + year;
+        intro.innerHTML = introMessage;
         countdown.innerHTML = minutes + "m " + seconds + "s ";
     } else if( days === 0){
-        intro.innerHTML = "Countdown to " + year;
+        intro.innerHTML = introMessage;
         countdown.innerHTML = hours + "h " + minutes + "m " + seconds + "s ";
     }else {
-    intro.innerHTML = "Countdown to " + year;
+    intro.innerHTML = introMessage;
         countdown.innerHTML = days + "d " + hours + "h "
     + minutes + "m " + seconds + "s ";   }
  
