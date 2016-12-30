@@ -9,9 +9,10 @@ var days, hours, minutes, seconds;
  var intro = document.getElementById("intro");
 // get tag element
 var countdown = document.getElementById("countdown");
- 
+//var test = 0;
 // update the tag with id "countdown" every 1 second
-setInterval(function () {
+var promise = setInterval(function () {
+//    test++;
  
     // find the amount of "seconds" between now and target
     var current_date = new Date().getTime();
@@ -30,7 +31,8 @@ setInterval(function () {
     // format countdown string + set tag value
     if(days === 0 && hours === 0 && minutes === 0 && seconds === 0){
         intro.innerHTML = message;
-        return;
+        countdown.innerHTML = '';
+        clearInterval(promise);
     } else if(days === 0 && hours === 0 && minutes === 0){
         intro.innerHTML = introMessage;
         countdown.innerHTML =   seconds + "s "; 
@@ -46,3 +48,8 @@ setInterval(function () {
     + minutes + "m " + seconds + "s ";   }
  
 }, 1000);
+
+
+
+
+
