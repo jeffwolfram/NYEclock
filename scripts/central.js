@@ -1,5 +1,5 @@
-var introMessage = prompt("What would you like it to say above the timer?");
-var message = prompt("What would you like the message to be when timer ends?");
+var introMessage = getElementById("introMessage1");
+var message = getElementById("exitMessage");
 // set the date we're counting down to
 var target_date = new Date("Jan 1, 2017" ).getTime();
  var year = new Date().getFullYear() + 1;
